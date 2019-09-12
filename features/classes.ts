@@ -1,5 +1,11 @@
 class Vehicle {
-  public honk(): void {
+  color: string;
+
+  constructor(color: string) {
+    this.color = color;
+  }
+
+  protected honk(): void {
     console.log('beep');
   }
 }
@@ -11,12 +17,12 @@ class Car extends Vehicle {
 
   startDrivingProcess(): void {
     this.drive();
+    this.honk();
   }
 }
 
-const vehicle = new Vehicle();
-vehicle.honk();
+const vehicle = new Vehicle('orange');
+console.log(vehicle.color);
 
-const car = new Car();
+const car = new Car('black');
 car.startDrivingProcess();
-car.honk();
