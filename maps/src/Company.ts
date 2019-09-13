@@ -1,6 +1,7 @@
 import faker from 'faker';
+import { Mappable } from './CustomMap';
 
-export class Company {
+export class Company implements Mappable {
   companyName: string;
   catchPhrase: string;
   location: {
@@ -15,5 +16,11 @@ export class Company {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude())
     };
+  }
+
+  markerContent(): string {
+    return `<h1>Company name is: ${this.companyName}</h1>
+    <h3>Company catch phrase is: ${this.catchPhrase}</h3>
+    `;
   }
 }
