@@ -2,15 +2,14 @@ import { CsvFileReader } from './CsvFileReader';
 import {} from './utils';
 import { MatchDataTransformer } from './MatchDataTransformer';
 import { MatchResult } from './MatchResult';
+import { MatchReader } from './MatchReader';
 
 const FILE_NAME = 'football.csv';
 
-const reader = new CsvFileReader(FILE_NAME);
+const reader = new MatchReader(FILE_NAME);
 reader.read();
 
-const transformer = new MatchDataTransformer(reader.data);
-const results = transformer.transform();
-console.log(results);
+console.log(reader.data);
 
 let manUnitedWins = 0;
 const MAN_UNITED = 'Man United';
