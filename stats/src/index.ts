@@ -1,5 +1,4 @@
 import {} from './utils';
-import { MatchDataTransformer } from './MatchDataTransformer';
 import { MatchResult } from './MatchResult';
 import { MatchReader } from './MatchReader';
 import { CsvFileReader } from './CsvFileReader';

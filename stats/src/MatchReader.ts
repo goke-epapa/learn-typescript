@@ -1,4 +1,4 @@
-import { MatchData } from './MatchDataTransformer';
+import { MatchData } from './MatchData';
 import { MatchResult } from './MatchResult';
 import { dateStringToDate } from './utils';
 

@@ -1,4 +1,4 @@
-import { MatchData } from '../MatchDataTransformer';
+import { MatchData } from '../MatchData';
 import { dateStringToDate } from '../utils';
 import { MatchResult } from '../MatchResult';
 import { CsvFileReader } from './CsvFileReader';

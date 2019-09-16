@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { MatchData } from '../MatchDataTransformer';
+import { MatchData } from '../MatchData';
 
 export abstract class CsvFileReader<T> {
 	data: T[] = [];
