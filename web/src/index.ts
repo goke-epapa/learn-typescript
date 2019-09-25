@@ -1,7 +1,4 @@
 import {User} from './models/User';
-
-const user = new User({name: 'Jide Owosakin', age: 30});
-
-user.attributes.get('id');
-
-user.sync.save();
+const user = User.build({id: 10});
+user.fetch();
+console.log(user);

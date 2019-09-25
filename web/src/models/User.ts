@@ -1,7 +1,10 @@
 
+import {AxiosResponse} from 'axios';
+
+import {ApiSync} from './ApiSync';
 import {Attributes} from './Attributes';
 import {Eventing} from './Eventing';
-import {Sync} from './Sync';
+import {Model} from './Model';
 
 export interface UserProps {
   id?: number;
@@ -11,24 +14,12 @@ export interface UserProps {
 
 const USERS_URL = 'http://localhost:3000/users/';
 
-export class User {
-  public events: Eventing = new Eventing();
-  public sync: Sync<UserProps> = new Sync<UserProps>(USERS_URL);
-  public attributes: Attributes<UserProps>;
+export class User extends Model<UserProps> {
+  static build(attrs: UserProps): User{return new User(
+      new Attributes<UserProps>(attrs), new ApiSync<UserProps>(USERS_URL),
+      new Eventing())}
 
-  constructor(attrs: UserProps) {
-    this.attributes = new Attributes<UserProps>(attrs);
-  }
-
-  get on() {
-    return this.events.on;
-  }
-
-  get trigger() {
-    return this.attributes.get;
-  }
-
-  get get() {
-    return this.attributes.get;
+  isAdminser(): boolean {
+    return this.get('id') === 1;
   }
 }
