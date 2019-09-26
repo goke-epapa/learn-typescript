@@ -3,6 +3,7 @@ import {AxiosResponse} from 'axios';
 
 import {ApiSync} from './ApiSync';
 import {Attributes} from './Attributes';
+import {Collection} from './Collection';
 import {Eventing} from './Eventing';
 import {Model} from './Model';
 
@@ -21,5 +22,9 @@ export class User extends Model<UserProps> {
 
   isAdminser(): boolean {
     return this.get('id') === 1;
+  }
+
+  static buildCollection(): Collection<User, UserProps> {
+    return new Collection<User, UserProps>(USERS_URL, User.build);
   }
 }
